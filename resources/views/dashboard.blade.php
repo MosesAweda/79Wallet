@@ -13,15 +13,62 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="manifest" href="_manifest.json">
 <meta id="theme-check" name="theme-color" content="#FFFFFF">
-<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png"></head>
+<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+<script>
+    window.onload = function () {
+        // Fade out the loader after the animation is complete
+        var loaderContainer = document.querySelector('.loader-container');
+        loaderContainer.style.opacity = '0';
+        setTimeout(function () {
+            loaderContainer.style.display = 'none';
+        }, 1000); // Adjust the time to match the duration of the transition in CSS
+    };
+</script>
+
+<style>
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; /* Choose a background color for the loader */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 1s ease; /* Fade out the loader after the animation */
+    z-index: 9999;
+}
+
+.loader-container img {
+    max-width: 100%;
+    animation: zoomInOut 5s infinite;
+}
+
+@keyframes zoomInOut {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2); /* Change the value to control the zoom level */
+    }
+}
+</style>
+</head>
 
 
 
 
 
 <body class="theme-light">
+    <div class="loader-container">
+        <img src="images/pictures/79.png" alt="Loading...">
+    </div>
+{{-- 
+<div id="preloader"><div class="spinner-border color-highlight" role="status"> <img src="images/pictures/79.png"> </div></div> --}}
 
-<div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
+
 
 <!-- Page Wrapper-->
 <div id="page">
@@ -53,7 +100,7 @@
                                     <h1 class="font-13 my-n1">
                                         <a class="color-theme" data-bs-toggle="collapse" href="#balance2" aria-controls="balance2">Click for Balance</a>
                                     </h1>
-                                    <div class="collapse" id="balance2"><h2 class="color-theme font-26">#15,100</h2></div>
+                                    <div class="collapse" id="balance2"><h2 class="color-theme font-26">	&#8358; 15,100</h2></div>
                                 </div>
                             </div>
                             <strong class="card-top no-click font-12 p-3 color-white font-monospace"> {{$user->first_name}} {{$user->last_name}}

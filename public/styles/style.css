@@ -2498,6 +2498,7 @@ img.mx-auto {
   border: 2px solid #999;
   border-left-color: transparent;
   animation: splide-loading 1s linear infinite;
+  background: url('../images/pictures/79.png');
 }
 
 .splide__track {
